@@ -71,15 +71,6 @@
 <p>Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos.</p>
 <blockquote class="question">
 <p>Checkpoint</p>
-<p>Qual o menor caminho entre o Nodo A e B?</p>
-<figure class="img"><img src="img/Principal/grafo-checkpoint2.png" alt="" style="max-height: 14em;"></figure>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>O menor caminho entre A e B é ir pelo nodo C que têm peso 5, e depois de C chegar em B, tendo um peso total de 6 - contra o caminho convencional de 7.</p>
-</details>
-</blockquote>
-<blockquote class="question">
-<p>Checkpoint</p>
 <p>Qual o menor caminho entre o nodo B e C?</p>
 <figure class="img"><img src="img/Principal/grafo-checkpoint2.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
@@ -91,7 +82,7 @@
 <blockquote class="question">
 <p>Checkpoint</p>
 <p>Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?</p>
-<p>OBS: <strong>Não gaste mais do que 1 minuto nesse Checkpoint!</strong></p>
+<p>OBS: <strong>Não gaste mais do que 10 segundos nesse Checkpoint!</strong></p>
 <figure class="img"><img src="img/Principal/gigante.png" alt="" style="max-height: 14em;"></figure>
 <details class="answer">
 <summary>Gabarito</summary>
@@ -101,7 +92,6 @@
 <p>Você deve ter percebido que é extremamente trabalhoso encontrar o menor caminho para cada um dos casos, e conforme o grafo se torna mais complexo, se torna mais dificil encontrar. Por isso, o algoritmo de Floyd-Warshall foi criado.</p>
 <h2>O que é o Algoritmo Floyd-Warshall</h2>
 <p>Floyd-Warshall é um algoritmo criado para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial. Usando programação dinâmica, ele irá encontrar os caminhos possíveis e selecionar os menores, atualizando a matriz de distâncias. Isso é muito poderoso para <strong>grafos densos</strong> (com muitas interconexões, como o que você tentou analisar logo acima).</p>
-<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
 <p>Vamos construir o pensamento do algoritmo aos poucos.</p>
 <p>Primeiro, vamos analisar o grafo abaixo:</p>
 <figure class="img"><img src="img/What-is/grafo-whatis.png" alt="" style="max-height: 18em;"></figure>
@@ -118,7 +108,7 @@
 <details class="answer">
 <summary>Gabarito</summary>
 <p>2 &gt; 8 + inf ?</p>
-<p>FALSOO, então não mudamos.</p>
+<p>FALSO, então não mudamos.</p>
 </details>
 </blockquote>
 <blockquote class="question">
@@ -227,7 +217,22 @@
 </blockquote>
 <h2>Desafios</h2>
 <blockquote class="question">
-<p>Desafio 1 - Google Maps</p>
+<p>Desafio Warshell Express: Desbravando as Rotas Algorítmicas</p>
+<p>A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.</p>
+<figure class="img"><img src="img/social.png" alt="" style="max-height: 20em;"></figure>
+<p>O professor dessa disciplina, que é muito querido pelos alunos, deseja saber quão distantes são os amigos, a fim de estreitar as relações. Para isso, vamos utilizar o algoritmo de Floyd-Warshall para calcular a matriz de distâncias entre todos os pares de amigos.</p>
+<p>Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>A matriz tem dimensionalidade 7x7, pois existem 7 vértices.</p>
+<p>Após a primeira iteração, a matriz é a mesma da matriz de adjacência:</p>
+<figure class="img"><img src="img/social-resposta-a.png" alt="" style="max-height: 20em;"></figure>
+<p>Após a última iteração, a matriz é a seguinte:</p>
+<figure class="img"><img src="img/social-resposta-b.png" alt="" style="max-height: 20em;"></figure>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Desafio Warshell Supremo: Dominando o Cosmos Algorítmico</p>
 <figure class="img"><img src="img/googlemaps.jpg" alt="" style="max-height: 15em;"></figure>
 <p>Imagine que você trabalha na equipe de desenvolvimento do Google Maps. Recentemente, o Google tem recebido muitas reclamações de desenvolvedores, muitos dos quais pedem um novo cliente. Portanto, você recebeu a tarefa de implementar o algoritmo de Floyd-Warshall em uma linguagem interpretada, mais flexível do que a atualmente utilizada, para calcular a distância entre todos os pares de pontos de determinadas regiões. Esse algoritmo, entretanto, precisa de uma modificação em relação ao clássico: ele precisa receber como argumento uma segunda matriz que representa o tempo de viagem entre os pontos. A matriz de distâncias deve ser calculada com base na matriz de tempos e não na matriz de adjacência.</p>
 <p>Desenvolva uma função <code class="language-c">floydWarshall</code>, que recebe como argumentos uma matriz de adjacência <code class="language-c">grafo</code> e o número de vértices <code class="language-c">n</code>, e retorna a matriz de distâncias <code class="language-c">dist</code>, com a modificação pedida.</p>
@@ -250,21 +255,6 @@
     return dist
 </code></pre>
 <p>A matriz “tempos” representa a matriz de tempos de viagem, onde “tempos[i][j]” é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência “grafo” representa o grafo, onde “grafo[i][j]” é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias “dist” é a matriz de distâncias entre todos os pares de vértices, onde “dist[i][j]” é a distância entre o vértice i e o vértice j.</p>
-</details>
-</blockquote>
-<blockquote class="question">
-<p>Desafio 2 - Rede social</p>
-<p>A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.</p>
-<figure class="img"><img src="img/social.png" alt="" style="max-height: 20em;"></figure>
-<p>O professor dessa disciplina, que é muito querido pelos alunos, deseja saber quão distantes são os amigos, a fim de estreitar as relações. Para isso, vamos utilizar o algoritmo de Floyd-Warshall para calcular a matriz de distâncias entre todos os pares de amigos.</p>
-<p>Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!</p>
-<details class="answer">
-<summary>Gabarito</summary>
-<p>A matriz tem dimensionalidade 7x7, pois existem 7 vértices.</p>
-<p>Após a primeira iteração, a matriz é a mesma da matriz de adjacência:</p>
-<figure class="img"><img src="img/social-resposta-a.png" alt="" style="max-height: 20em;"></figure>
-<p>Após a última iteração, a matriz é a seguinte:</p>
-<figure class="img"><img src="img/social-resposta-b.png" alt="" style="max-height: 20em;"></figure>
 </details>
 </blockquote>
 

@@ -73,17 +73,6 @@ Se conseguiu completar corretamente, quer dizer que já entendeu os objetivos, e
 Com todos os pesos dos nodos em uma matriz podemos encontrar o caminho de menor peso entre dois nodos.
 
 ??? Checkpoint
-Qual o menor caminho entre o Nodo A e B?
-
-![](Principal/grafo-checkpoint2.png|14)
-
-::: Gabarito
-
-O menor caminho entre A e B é ir pelo nodo C que têm peso 5, e depois de C chegar em B, tendo um peso total de 6 - contra o caminho convencional de 7.
-
-???
-
-??? Checkpoint
 Qual o menor caminho entre o nodo B e C?
 
 ![](Principal/grafo-checkpoint2.png|14)
@@ -99,7 +88,7 @@ Você deve estar achando o problema muito fácil, basta analisarmos os nodos e s
 ??? Checkpoint
 Qual o menor caminho entre todos os nodos, isto é, o menor caminho saindo de cada nó e chegando nos demais ?
 
-OBS: **Não gaste mais do que 1 minuto nesse Checkpoint!**
+OBS: **Não gaste mais do que 10 segundos nesse Checkpoint!**
 
 ![](Principal/gigante.png|14)
 
@@ -116,8 +105,6 @@ O que é o Algoritmo Floyd-Warshall
 ---------
 
 Floyd-Warshall é um algoritmo criado para encontrar todos os menores caminhos de um grafo de forma eficiente - e entregar a resposta em uma matriz de mesmo tamanho que a inicial. Usando programação dinâmica, ele irá encontrar os caminhos possíveis e selecionar os menores, atualizando a matriz de distâncias. Isso é muito poderoso para **grafos densos** (com muitas interconexões, como o que você tentou analisar logo acima).
-
-<!-- Abaixo está um exemplo de como este algoritmo funciona, demonstrando uma das procuras dele pelo menor caminho, e construindo a matriz de distâncias passo a passo. -->
 
 Vamos construir o pensamento do algoritmo aos poucos.
 
@@ -144,7 +131,7 @@ BC > BA + AC ?
 ::: Gabarito
 2 > 8 + inf ? 
 
-FALSOO, então não mudamos.
+FALSO, então não mudamos.
 ???
 
 ??? Checkpoint
@@ -265,7 +252,28 @@ A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de dist
 Desafios
 ---------
 
-??? Desafio 1 - Google Maps
+??? Desafio Warshell Express: Desbravando as Rotas Algorítmicas
+A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.
+
+![](social.png|20)
+
+O professor dessa disciplina, que é muito querido pelos alunos, deseja saber quão distantes são os amigos, a fim de estreitar as relações. Para isso, vamos utilizar o algoritmo de Floyd-Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
+
+Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!
+::: Gabarito
+A matriz tem dimensionalidade 7x7, pois existem 7 vértices.
+
+Após a primeira iteração, a matriz é a mesma da matriz de adjacência: 
+
+![](social-resposta-a.png|20)
+
+Após a última iteração, a matriz é a seguinte:
+
+![](social-resposta-b.png|20)
+
+???
+
+??? Desafio Warshell Supremo: Dominando o Cosmos Algorítmico
 
 ![](googlemaps.jpg|15)
 
@@ -292,26 +300,4 @@ def floydWarshall(grafo, n, tempos):
     return dist
 ```
 A matriz "tempos" representa a matriz de tempos de viagem, onde "tempos[i][j]" é o tempo de viagem entre o vértice i e o vértice j. A matriz de adjacência "grafo" representa o grafo, onde "grafo[i][j]" é o peso da aresta entre o vértice i e o vértice j. A matriz de distâncias "dist" é a matriz de distâncias entre todos os pares de vértices, onde "dist[i][j]" é a distância entre o vértice i e o vértice j.
-???
-
-
-??? Desafio 2 - Rede social
-A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.
-
-![](social.png|20)
-
-O professor dessa disciplina, que é muito querido pelos alunos, deseja saber quão distantes são os amigos, a fim de estreitar as relações. Para isso, vamos utilizar o algoritmo de Floyd-Warshall para calcular a matriz de distâncias entre todos os pares de amigos.
-
-Quais são as dimensões da matriz? Desenhe ela na PRIMEIRA iteração do algoritmo, e no FINAL da última iteração. Use o código que você criou!
-::: Gabarito
-A matriz tem dimensionalidade 7x7, pois existem 7 vértices.
-
-Após a primeira iteração, a matriz é a mesma da matriz de adjacência: 
-
-![](social-resposta-a.png|20)
-
-Após a última iteração, a matriz é a seguinte:
-
-![](social-resposta-b.png|20)
-
 ???
