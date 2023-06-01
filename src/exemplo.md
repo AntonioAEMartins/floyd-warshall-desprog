@@ -252,7 +252,7 @@ A complexidade de espaço é O(n²), pois o algoritmo utiliza uma matriz de dist
 Desafios
 ---------
 
-??? Desafio Warshell Express: Desbravando as Rotas Algorítmicas
+??? Desafio Warshall Express: Desbravando as Rotas Algorítmicas
 A imagem abaixo representa um grafo de uma pequena rede desenvolvida entre amigos, para uma disciplina de Engenharia da Computação do Insper. Nele, cada amigo é representado por um vértice e cada conexão entre amigos é representada por uma aresta. A distância entre dois amigos é determinada pelo número de arestas que os separam.
 
 ![](social.png|20)
@@ -273,7 +273,7 @@ Após a última iteração, a matriz é a seguinte:
 
 ???
 
-??? Desafio Warshell Supremo: Dominando o Cosmos Algorítmico
+??? Desafio Warshall Supremo: Dominando o Cosmos Algorítmico
 
 ![](googlemaps.jpg|15)
 
